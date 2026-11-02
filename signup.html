@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join the NCA Scholarship Club and begin your scholarship journey.">
+  <title>Join NCA Scholarship Club</title>
+  <link rel="stylesheet" href="signup.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="auth-page">
+
+  <header class="auth-header">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">NCA</div>
+      <div>
+        <strong>NCA Scholarship Club</strong>
+        <small>Neway Challenge Academy</small>
+      </div>
+    </a>
+
+    <a href="index.html" class="back-link">← Back to home</a>
+  </header>
+
+  <main class="signup-layout">
+
+    <section class="signup-intro">
+      <p class="eyebrow">YOUR FUTURE STARTS HERE</p>
+
+      <h1>Dream bigger.<br><span>Go further.</span></h1>
+
+      <p>
+        Join a community of ambitious students who learn,
+        grow, discover scholarship opportunities, and support
+        each other toward a brighter future.
+      </p>
+
+      <div class="intro-points">
+        <div><span>✦</span> Discover scholarship opportunities</div>
+        <div><span>✦</span> Learn application and essay writing skills</div>
+        <div><span>✦</span> Connect with ambitious students</div>
+        <div><span>✦</span> Prepare for your future</div>
+      </div>
+
+      <div class="intro-quote">
+        "You can do it if you try."
+      </div>
+    </section>
+
+    <section class="signup-card">
+
+      <div class="form-heading">
+        <p class="eyebrow">NCA COMMUNITY</p>
+        <h2>Create your account</h2>
+        <p>Complete your information to join the club.</p>
+      </div>
+
+      <form id="signup-form">
+
+        <div class="form-grid">
+
+          <label class="field full">
+            Full name
+            <input
+              type="text"
+              id="full-name"
+              name="full_name"
+              placeholder="Enter your full name"
+              autocomplete="name"
+              required
+            >
+          </label>
+
+          <label class="field">
+            Grade
+            <select id="grade" name="grade" required>
+              <option value="">Select grade</option>
+              <option value="9">Grade 9</option>
+              <option value="10">Grade 10</option>
+              <option value="11">Grade 11</option>
+              <option value="12">Grade 12</option>
+            </select>
+          </label>
+
+          <label class="field">
+            Class / Section
+            <select id="section" name="section" required disabled>
+              <option value="">Select grade first</option>
+            </select>
+          </label>
+
+          <label class="field">
+            Gender
+            <select id="gender" name="gender" required>
+              <option value="">Select gender</option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Prefer not to say">Prefer not to say</option>
+            </select>
+          </label>
+
+          <label class="field">
+            Age
+            <input
+              type="number"
+              id="age"
+              name="age"
+              min="10"
+              max="25"
+              placeholder="Your age"
+              required
+            >
+          </label>
+
+          <label class="field full">
+            Email address
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@email.com"
+              autocomplete="email"
+              required
+            >
+          </label>
+
+          <label class="field full">
+            Phone number
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="+251 9XX XXX XXX"
+              autocomplete="tel"
+              required
+            >
+          </label>
+
+          <label class="field full">
+            Create password
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="At least 8 characters"
+              minlength="8"
+              autocomplete="new-password"
+              required
+            >
+            <small>Use a strong password that you have not used elsewhere.</small>
+          </label>
+
+          <label class="field full">
+            Confirm password
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm_password"
+              placeholder="Enter your password again"
+              minlength="8"
+              autocomplete="new-password"
+              required
+            >
+          </label>
+
+          <label class="field full">
+            Choose your category
+            <select id="category" name="category" required>
+              <option value="">Select your category</option>
+              <option value="member">Member</option>
+              <option value="leader">Leader</option>
+            </select>
+          </label>
+
+          <label class="field full hidden" id="leader-id-field">
+            Leader ID number
+            <input
+              type="text"
+              id="leader-id"
+              name="leader_id"
+              placeholder="Enter your official club leader ID"
+            >
+            <small>Your leader application will need verification.</small>
+          </label>
+
+        </div>
+
+        <label class="terms-check">
+          <input type="checkbox" id="agree" required>
+          <span>
+            I confirm that the information above is correct and
+            agree to the club's membership rules.
+          </span>
+        </label>
+
+        <p id="signup-message" class="form-message" role="status"></p>
+
+        <button type="submit" id="signup-submit" class="signup-button">
+          Create my account <span>→</span>
+        </button>
+
+      </form>
+
+      <div class="login-prompt">
+        Already have an account?
+        <a href="login.html">Sign in</a>
+      </div>
+
+      <p class="privacy-note">
+        Your personal information is for club administration
+        and will not be displayed publicly.
+      </p>
+
+    </section>
+  </main>
+
+  <footer class="auth-footer">
+    © <span id="signup-year"></span> NCA Scholarship Club.
+    You can do it if you try.
+  </footer>
+
+ <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="signup.js"></script>
+
+</body>
+</html>
