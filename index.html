@@ -1,0 +1,250 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101b36">
+  <title>NCA Scholarship Club</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#home">
+    <span class="brand-mark">NCA</span>
+    <span>
+      <strong>NCA Scholarship Club</strong>
+      <small>Neway Challenge Academy</small>
+    </span>
+  </a>
+
+  <button id="menu-toggle" class="menu-toggle">☰</button>
+
+  <nav id="nav">
+    <a href="#home">Home</a>
+    <a href="#scholarships">Scholarships</a>
+    <a href="#announcements">Announcements</a>
+    <button class="btn btn-outline" id="open-auth">
+      Sign in / Join
+    </button>
+  </nav>
+</header>
+
+<main>
+
+  <section id="home" class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">
+        DREAM BIG • PREPARE WELL • APPLY GLOBALLY
+      </p>
+
+      <h1>
+        Big dreams.<br>
+        <span>Global opportunities.</span>
+      </h1>
+
+      <p class="hero-text">
+        Discover scholarship opportunities, prepare strong
+        applications, and take your next step toward studying
+        around the world.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#scholarships">
+          Explore scholarships ↗
+        </a>
+
+        <button class="btn btn-light" id="hero-join">
+          Join the club
+        </button>
+      </div>
+
+      <p class="slogan">
+        “You can do it if you try.”
+      </p>
+    </div>
+
+    <div class="hero-art">
+      <div class="orbit orbit-one"></div>
+      <div class="orbit orbit-two"></div>
+      <div class="globe">🌐</div>
+      <div class="cap">🎓</div>
+      <div class="book">📚</div>
+
+      <div class="art-label">
+        Your next chapter starts here
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div><strong>🌍</strong><span>Global opportunities</span></div>
+    <div><strong>🎓</strong><span>Scholarship discovery</span></div>
+    <div><strong>📝</strong><span>Application preparation</span></div>
+    <div><strong>🤝</strong><span>Learn together</span></div>
+  </section>
+
+  <section id="scholarships" class="section">
+
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">FIND YOUR OPPORTUNITY</p>
+        <h2>Scholarships to explore</h2>
+        <p class="muted">
+          Check eligibility and deadlines on official websites.
+        </p>
+      </div>
+
+      <span id="scholarship-count" class="count-pill">
+        Loading…
+      </span>
+    </div>
+
+    <div class="filters">
+      <label class="searchbox">
+        <span>⌕</span>
+        <input
+          id="search"
+          type="search"
+          placeholder="Search scholarships, countries, universities…">
+      </label>
+
+      <select id="country-filter">
+        <option value="">All countries</option>
+      </select>
+
+      <select id="level-filter">
+        <option value="">All study levels</option>
+        <option>Bachelor's</option>
+        <option>Master's</option>
+        <option>PhD</option>
+        <option>Exchange</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div id="scholarship-list" class="cards">
+      <div class="empty-state">Loading scholarships…</div>
+    </div>
+
+    <p class="small-note">
+      Always verify scholarship information with the official provider.
+    </p>
+  </section>
+
+  <section id="announcements" class="section announcements-section">
+
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">STAY UPDATED</p>
+        <h2>Club announcements</h2>
+        <p class="muted">
+          Updates, events, and application reminders.
+        </p>
+      </div>
+    </div>
+
+    <div id="announcement-list" class="announcement-list">
+      <div class="empty-state">Loading announcements…</div>
+    </div>
+
+  </section>
+
+  <section class="join-banner">
+    <div>
+      <p class="eyebrow">YOUR FUTURE IS WORTH PREPARING FOR</p>
+      <h2>Start your scholarship journey.</h2>
+      <p>
+        Explore opportunities, stay informed, and prepare
+        your applications with purpose.
+      </p>
+    </div>
+
+    <button class="btn btn-gold" id="banner-join">
+      Create an account ↗
+    </button>
+  </section>
+
+</main>
+
+<footer>
+  <a class="brand footer-brand" href="#home">
+    <span class="brand-mark">NCA</span>
+    <span>
+      <strong>NCA Scholarship Club</strong>
+      <small>Neway Challenge Academy</small>
+    </span>
+  </a>
+
+  <p>“You can do it if you try.”</p>
+
+  <small>
+    © <span id="year"></span> NCA Scholarship Club.
+  </small>
+</footer>
+
+<div id="auth-modal" class="modal hidden">
+  <div class="modal-panel">
+
+    <button id="close-auth" class="close">×</button>
+
+    <p class="eyebrow">WELCOME TO NCA</p>
+    <h2 id="auth-title">Join the club</h2>
+
+    <p class="muted">
+      Create an account or sign in to continue.
+    </p>
+
+    <div class="auth-tabs">
+      <button class="active" data-mode="signup">
+        Create account
+      </button>
+
+      <button data-mode="signin">
+        Sign in
+      </button>
+    </div>
+
+    <form id="auth-form">
+
+      <label id="name-wrap">
+        Full name
+        <input id="full-name" required maxlength="100">
+      </label>
+
+      <label>
+        Email address
+        <input id="email" type="email" required>
+      </label>
+
+      <label>
+        Password
+        <input id="password" type="password" required minlength="8">
+      </label>
+
+      <button class="btn btn-gold full-width" id="auth-submit">
+        Create account
+      </button>
+
+      <p id="auth-message" class="form-message"></p>
+
+    </form>
+
+    <p class="tiny muted">
+      Never share your password with anyone.
+    </p>
+
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+</body>
+</html>
